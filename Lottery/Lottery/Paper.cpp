@@ -13,11 +13,16 @@ Paper::~Paper()
 {
 	delete(numbers);
 }
-void Paper::GetNumbers(short *pArray)
+
+void Paper::SetNumbers(short *pArray)
 {
-	*numbers = *pArray;
-	PrintPaper();
+	for (size_t index = 0; index < JUDGENUM; index++)
+	{
+		numbers[index] = pArray[index];
+	}
+	//PrintPaper();
 }
+///로또 리스트 전체 출력
 void Paper::PrintPaper()
 {
 	cout << "Rottery Numbers ";
@@ -26,7 +31,17 @@ void Paper::PrintPaper()
 		cout << numbers[index] << " ";
 	}
 }
-void Paper::BuyPaper()
-{
 
+/*
+전체 배열 반환
+*/
+short* Paper::GetNumbers()
+{
+	return numbers;
+}
+
+/// 인덱스를 통한 배열 출력
+short Paper::GetNumberIndex(int num)
+{
+	return numbers[num];
 }
